@@ -24,4 +24,4 @@ anova_svm.set_params(anova__k=10,svc__C=0.2,svc__kernel="sigmoid").fit(X,y)
 anova_svm.predict(X)
 score = anova_svm.score(X,y)
 
-C = anova_svm.named_steps['svc'].get_params
+para = anova_svm.named_steps['svc'].get_params
