@@ -38,7 +38,7 @@ def combine_all_files(*files):
                      "2014年度重点基金项目（信息领域）评审会专家名单",\
                      "2015年度创新研究群体及国家杰出青年科学基金项目（信息领域）评审会专家公示名单",\
                      "2015年度优秀青年基金项目（信息领域）评审会专家公示名单",\
-                     "undone会评专家名单"]
+                     "undone会评专家名单","1","2","3","4","5","6"]
     for file in files:
         tmp = reshape_files(file)
         tmp = replace_blank(tmp)
@@ -52,31 +52,40 @@ def find_title(names):
     all_titles = []
     for name in names:
         titles = []
-        if name in f1.values:
+        if name in replace_blank(reshape_files(f1)):
             titles.append("2014年度创新研究群体及国家杰出青年科学基金项目（信息领域）评审会专家名单")
-        if name in f2.values:
+        if name in replace_blank(reshape_files(f2)):
             titles.append("2014年度面上基金、青年基金及地区基金项目（信息领域）评审会专家名单")
-        if name in f3.values:
+        if name in replace_blank(reshape_files(f3)):
             titles.append("2014年度信息科学部海外及港澳学者合作研究基金、重点国际(地区)合作与交流项目、民航联合基金评审会专家名单")
-        if name in f4.values:
+        if name in replace_blank(reshape_files(f4)):
             titles.append("2014年度信息科学部重大项目评审会专家名单")
-        if name in f5.values:
+        if name in replace_blank(reshape_files(f5)):
             titles.append("2014年度优秀青年科学基金项目（信息领域）评审会专家名单")
-        if name in f6.values:
+        if name in replace_blank(reshape_files(f6)):
             titles.append("2014年度重点基金项目（信息领域）评审会专家名单")
-        if name in f7.values:
+        if name in replace_blank(reshape_files(f7)):
             titles.append("2015年度创新研究群体及国家杰出青年科学基金项目（信息领域）评审会专家公示名单")
-        if name in f8.values:
+        if name in replace_blank(reshape_files(f8)):
             titles.append("2015年度优秀青年基金项目（信息领域）评审会专家公示名单")
-        if name in f9.values:
-            titles.append("undone会评专家名单")
+        if name in replace_blank(reshape_files(f9)):
+            titles.append("2014年度信息科学部空间信息网重大研究计划")
+        if name in replace_blank(reshape_files(f10)):
+            titles.append("2015年度面上基金、青年基金及地区基金项目（信息领域）评审会")
+        if name in replace_blank(reshape_files(f11)):
+            titles.append("2015年度信息科学部国际（地区）合作与交流项目、海外及港澳学者合作研究基金评审会议")
+        if name in replace_blank(reshape_files(f12)):
+            titles.append("2015年度信息科学部民航联合基金评审会议")
+        if name in replace_blank(reshape_files(f13)):
+            titles.append("2015年度重点基金项目（信息领域）评审会")
+        if name in replace_blank(reshape_files(f14)):
+            titles.append("2016年度信息科学部国家杰出青年科学基金和创新研究群体项目评审会")
+        if name in replace_blank(reshape_files(f15)):
+            titles.append("2016年度信息科学部民航联合基金评审会")
+            
         all_titles.append(titles)
     return all_titles
             
-            
-            
-            
-        
 
 #Excles
 excel1 = pd.read_excel("会评专家名单/F0102.xlsx",names=["index","nothing","name","id1","id2","id3","id4","id5","id6","id7","id8","id9","id10","id11","id12"])
@@ -101,9 +110,16 @@ f5 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/
 f6 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/2014年度重点基金项目（信息领域）评审会专家名单.xlsx",names=[i for i in range(7)],header=None)
 f7 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/2015年度创新研究群体及国家杰出青年科学基金项目（信息领域）评审会专家公示名单.xlsx",names=[i for i in range(5)],header=None)
 f8 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/2015年度优秀青年基金项目（信息领域）评审会专家公示名单.xlsx",names=[i for i in range(10)],header=None)
-f9 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/undone会评专家名单.xlsx",names=[1,2],header=None)
+#f9 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/undone会评专家名单.xlsx",names=[1,2],header=None)
+f9 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2014年度信息科学部空间信息网重大研究计划.xlsx",names=[1],header=None)
+f10 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2015年度面上基金、青年基金及地区基金项目（信息领域）评审会.xlsx",names=[1],header=None)
+f11 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2015年度信息科学部国际（地区）合作与交流项目、海外及港澳学者合作研究基金评审会议.xlsx",names=[1],header=None)
+f12 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2015年度信息科学部民航联合基金评审会议.xlsx",names=[1],header=None)
+f13 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2015年度重点基金项目（信息领域）评审会.xlsx",names=[1],header=None)
+f14 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2016年度信息科学部国家杰出青年科学基金和创新研究群体项目评审会.xlsx",names=[1],header=None)
+f15 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单/面上基金、青年基金、重点基金、优青、杰青/excels/new/2016年度信息科学部民航联合基金评审会.xlsx",names=[1],header=None)
 
-all_names_doc,all_titles_doc = combine_all_files(f1,f2,f3,f4,f5,f6,f7,f8,f9)
+all_names_doc,all_titles_doc = combine_all_files(f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15)
 df_all_names_doc = DataFrame(columns=["name",'titles'])
 df_all_names_doc.name = all_names_doc
 #df_all_names_doc.titles = all_titles_doc
