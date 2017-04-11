@@ -122,7 +122,7 @@ f15 = pd.read_excel("国家自然科学基金委 信息学部_会评专家名单
 all_names_doc,all_titles_doc = combine_all_files(f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13,f14,f15)
 df_all_names_doc = DataFrame(columns=["name",'titles'])
 df_all_names_doc.name = all_names_doc
-#df_all_names_doc.titles = all_titles_doc
+##df_all_names_doc.titles = all_titles_doc
 df_all_excels = pd.concat([excel1,excel2,excel3,excel4,excel5,excel6,excel7,excel8,excel9,excel10,excel11,excel12])
 
 result = pd.merge(df_all_excels,df_all_names_doc,on='name',how="right")
